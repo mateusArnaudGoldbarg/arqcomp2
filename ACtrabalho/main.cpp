@@ -8,9 +8,9 @@ int main()
     int AC = 0;
     int MQ = 0;
     int MAR = 0;
-    int MBR[1024][11];
+    int MBR[11];
     int PC = 0;
-    int IR[1024][11];
+    int IR[11];
     int opcode = 0;
 
     int a=0;
@@ -55,12 +55,11 @@ int main()
         a = 0;
 
         for (a = 0; a<=10;a++){
-            MBR[PC][a] = bloco1[PC][a]; //MBR lê a intrução no bloco de memória
-            IR[PC][a] = MBR[PC][a]; //Essa instrução é copiada para IR
+            MBR[a] = bloco1[PC][a]; //MBR lê a intrução no bloco de memória
+            IR[a] = MBR[a]; //Essa instrução é copiada para IR
         }
 
-        opcode = IR[PC][0];  //IR é dividido em opcode e endereço (MAR)
-
+        opcode = IR[0];  //IR é dividido em opcode e endereço (MAR)
        if(opcode == 001010){ //LOAD MQ
             //o AC recebe o conteúdo de MQ
             AC = MQ;
